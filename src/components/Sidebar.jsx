@@ -11,8 +11,8 @@ const Sidebar = () => {
         const handleClickOutside = (e) => {
             if (!sidebarRef.current?.contains(e.target)) setIsOpen(false);
         };
-        document.addEventListener("mousedown", handleClickOutside);
-        return () => document.removeEventListener("mousedown", handleClickOutside);
+        document.addEventListener("click", handleClickOutside);
+        return () => document.removeEventListener("click", handleClickOutside);
     }, []);
 
     const handleNavigation = (path) => {
@@ -26,16 +26,18 @@ const Sidebar = () => {
     { label: "About", icon: <PawPrint />, path: "/about" }]
 
     return (
-        <div ref={sidebarRef} className="relative mt-1.5">
+        <div ref={sidebarRef}>
             {/* Toggle Button */}
             <button onClick={() => setIsOpen(!isOpen)} className="relative w-10 h-10 flex items-center justify-center">
                 <Menu
-                    color="#983434"
+                    color="#cb1515"
+                    strokeWidth={2.5}
                     size={36}
                     className={`absolute transition-transform duration-300 ${isOpen ? "opacity-0 rotate-90 scale-0" : "opacity-100 rotate-0 scale-100"}`}
                 />
                 <CircleX
-                    color="#983434"
+                    color="#cb1515"
+                    strokeWidth={2.5}
                     size={36}
                     className={`absolute transition-transform duration-300 ${isOpen ? "opacity-100 rotate-0 scale-100" : "opacity-0 -rotate-90 scale-0"}`}
                 />
@@ -50,7 +52,7 @@ const Sidebar = () => {
                         .map(({ label, icon, path }, index) => (
                             <li key={index}
                                 onClick={() => handleNavigation(path)}
-                                className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 hover:font-bold transition "
+                                className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 hover:text-red-500 hover:font-bold transition duration-200 "
                             >
                                 {icon} {label}
                             </li>

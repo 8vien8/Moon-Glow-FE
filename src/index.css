@@ -4,6 +4,16 @@
   cursor: url("/cursor1.png"), auto;
 }
 
+h1 {
+  font-size: 2.25rem;
+  font-weight: 900;
+}
+
+h3 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
 body {
   background-image: url("/background.jpg");
   background-size: cover;
