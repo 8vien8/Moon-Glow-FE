@@ -2,7 +2,7 @@ function Loading() {
     return (
         <div className="fixed inset-0 flex items-center justify-center">
             {/* Background Layer with Opacity */}
-            <div className="absolute inset-0 bg-gray-50 dark:bg-gray-700 opacity-70"></div>
+            <div className="absolute inset-0 bg-gray-50 dark:bg-gray-600 opacity-60"></div>
 
             {/* Loading Spinner */}
             <div className="relative z-10">

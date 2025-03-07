@@ -6,6 +6,9 @@ import usePosterService from "../services/poster";
 // components
 import Loading from "../components/Loading";
 import PosterSlides from "../components/home/PosterSlides";
+import Category from "../components/home/Category";
+import Product from "../components/home/Product";
+import Contact from "../components/home/Contact";
 
 function Home() {
     const [posters, setPosters] = useState([]);
@@ -21,9 +24,16 @@ function Home() {
         fetchPosters();
     }, [posterService]);
 
+    if (loading) {
+        return <Loading />;
+    }
+
     return (
         <div className="p-2">
-            {loading ? <Loading /> : <PosterSlides posters={posters} />}
+            <PosterSlides posters={posters} />
+            <Category />
+            <Product />
+            <Contact />
         </div>
     );
 }

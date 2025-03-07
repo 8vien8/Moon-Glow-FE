@@ -20,7 +20,7 @@ function MainLayout() {
                 </main>
 
                 {/* Footer */}
-                <Footer className="bg-gray-700 text-white text-center p-4" />
+                <Footer className="bg-gray-800 text-white text-center p-4" />
             </div>
         </div>
     );

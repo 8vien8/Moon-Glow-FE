@@ -23,26 +23,22 @@ function PosterSlides({ posters }) {
     }, []);
 
     return (
-        <div className="relative w-full h-[68vh]">
-            {/* Left Navigation Button - Hidden on Mobile */}
+        <div className="relative w-full px-2 h-[50vh] sm:h-[68vh]">
+            {/* Left Navigation Button */}
             <button
                 id="swiper-prev"
-                className={`absolute top-1/2 left-4 z-10 p-3 bg-white rounded-full shadow-lg text-red-700 
-                transition-all duration-300 hidden sm:block
-                ${disablePrev ? "opacity-0 cursor-not-allowed" : "opacity-100 hover:bg-red-300"
-                    }`}
+                className={`absolute top-1/2 left-2 sm:left-4 z-10 p-3 sm:p-4 bg-white rounded-full shadow-lg text-red-700 
+                transition-all duration-300 ${disablePrev ? "opacity-50 cursor-not-allowed" : "opacity-100 hover:bg-red-300"}`}
                 disabled={disablePrev}
             >
                 <ChevronLeft size={28} strokeWidth={3} />
             </button>
 
-            {/* Right Navigation Button - Hidden on Mobile */}
+            {/* Right Navigation Button */}
             <button
                 id="swiper-next"
-                className={`absolute top-1/2 right-4 z-10 p-3 bg-white rounded-full shadow-lg text-red-700
-                transition-all duration-300 hidden sm:block
-                ${disableNext ? "opacity-0 cursor-not-allowed" : "opacity-100 hover:bg-red-300"
-                    }`}
+                className={`absolute top-1/2 right-2 sm:right-4 z-10 p-3 sm:p-4 bg-white rounded-full shadow-lg text-red-700
+                transition-all duration-300 ${disableNext ? "opacity-50 cursor-not-allowed" : "opacity-100 hover:bg-red-300"}`}
                 disabled={disableNext}
             >
                 <ChevronRight size={28} strokeWidth={3} />
@@ -53,15 +49,10 @@ function PosterSlides({ posters }) {
                 modules={[Navigation, Pagination, Autoplay, EffectFade]}
                 spaceBetween={10}
                 slidesPerView={1}
-                navigation={{
-                    nextEl: "#swiper-next",
-                    prevEl: "#swiper-prev",
-                }}
+                navigation={{ nextEl: "#swiper-next", prevEl: "#swiper-prev" }}
                 pagination={{ clickable: true }}
                 autoplay={{ delay: 3000 }}
                 speed={1500}
-                // effect="fade"
-                // fadeEffect={{ crossFade: true }}
                 className="w-full h-full rounded-lg shadow-sm"
             >
                 {posters.map((poster) =>

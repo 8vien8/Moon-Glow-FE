@@ -5,7 +5,7 @@ function Header() {
             <h1 className="font-[Roboto_Slab] text-red-700">
                 Moon Glow
             </h1>
-            <h3 className="italic font-[Playwrite_IT_Moderna] text-red-800 -translate-y-1.5 ">
+            <h3 className="italic font-[Playwrite_IT_Moderna] text-red-800 sm:-translate-y-1.5 -translate-y-2.5 ">
                 .bling store
             </h3>
         </div>
