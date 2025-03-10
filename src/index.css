@@ -26,6 +26,10 @@ h2 {
 }
 
 h3 {
+  font-size: 1.3rem;
+  font-weight: 650;
+}
+h4 {
   font-size: 1rem;
   font-weight: 600;
 }
@@ -41,7 +45,12 @@ body {
 button:hover,
 button:hover,
 li:hover,
-li:hover * {
+li:hover *,
+select:hover,
+select:hover,
+a:hover,
+a:hover *,
+.group:hover * {
   cursor: url("/cursor2.png"), auto;
 }
 
