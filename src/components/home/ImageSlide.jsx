@@ -1,14 +1,20 @@
 import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import components
 import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import icons
 import { ChevronLeft, ChevronRight } from "lucide-react";
+
+// Import styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 
-function PosterSlides({ posters }) {
+function ImageSlide({ images }) {
     const [disablePrev, setDisablePrev] = useState(true);
     const [disableNext, setDisableNext] = useState(false);
 
@@ -55,9 +61,9 @@ function PosterSlides({ posters }) {
                 speed={1500}
                 className="w-full h-full rounded-lg shadow-sm"
             >
-                {posters.map((poster) =>
-                    poster.image.map((img, index) => (
-                        <SwiperSlide key={`${poster._id}-${index}`}>
+                {images.map((img) =>
+                    img.image.map((img, index) => (
+                        <SwiperSlide key={`${img._id}-${index}`}>
                             <img
                                 src={img}
                                 alt={`Poster ${index}`}
@@ -71,8 +77,8 @@ function PosterSlides({ posters }) {
     );
 }
 
-PosterSlides.propTypes = {
-    posters: PropTypes.array.isRequired,
+ImageSlide.propTypes = {
+    images: PropTypes.array.isRequired,
 };
 
-export default PosterSlides;
+export default ImageSlide;

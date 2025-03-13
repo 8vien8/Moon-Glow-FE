@@ -14,7 +14,7 @@ function MainLayout() {
             {/* Main content */}
             <div className="flex flex-col flex-1 w-full min-w-screen">
                 {/* Header */}
-                <Header />
+                <Header className="flex flex-col sm:flex-row text-center justify-center items-center" />
                 <main className="flex-1 text-center">
                     <Outlet />
                 </main>

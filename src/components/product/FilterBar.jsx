@@ -2,9 +2,19 @@ import PropTypes from "prop-types";
 
 const FilterBar = ({ category, setCategory, status, setStatus, sortBy, setSortBy }) => {
     const filters = [
-        { value: category, setValue: setCategory, options: ["All Categories", "Phone Strap", "Candles", "Key Chains", "Wool Products"] },
-        { value: status, setValue: setStatus, options: ["All Status", "Available", "Pre-Order", "Out of Stock"] },
-        { value: sortBy, setValue: setSortBy, options: ["default", "priceLowToHigh", "priceHighToLow"], labels: ["All Price", "Price: Low to High", "Price: High to Low"] },
+        {
+            value: category, setValue: setCategory,
+            options: ["All Categories", "Phone Strap", "Candles", "Key Chains", "Wool Products"]
+        },
+        {
+            value: status, setValue: setStatus,
+            options: ["All Status", "Available", "Pre-Order", "Out of Stock"]
+        },
+        {
+            value: sortBy, setValue: setSortBy,
+            options: ["default", "priceLowToHigh", "priceHighToLow"],
+            labels: ["All Price", "Price: Low to High", "Price: High to Low"]
+        },
     ];
 
     return (

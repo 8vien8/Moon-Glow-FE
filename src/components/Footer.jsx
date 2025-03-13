@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 function Footer({ className }) {
     return (
         <footer className={`${className}`}>
-            © 2025 My Website. All rights reserved.
+            © 2025 MoonGlow Website. All rights reserved.
         </footer>
     )
 }

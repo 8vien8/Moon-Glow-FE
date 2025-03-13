@@ -1,9 +1,16 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+//Import layouts
+import MainLayout from "../layouts/MainLayout";
+
+// Import pages
 import Home from "../pages/Home";
 import About from "../pages/About";
 import Contact from "../pages/Contact";
-import MainLayout from "../layouts/MainLayout";
 import Product from "../pages/Product";
+
+// Import components
+import ProductDetails from "../components/product/details/ProductDetail";
 
 const AppRouter = () => {
 
@@ -13,6 +20,7 @@ const AppRouter = () => {
                 <Route exact path="/" element={<MainLayout />}>
                     <Route index element={<Home />} />
                     <Route exact path="/product" element={<Product />} />
+                    <Route exact path="/product/:id" element={<ProductDetails />} />
                     <Route exact path="/about" element={<About />} />
                     <Route exact path="/contact" element={<Contact />} />
                 </Route>

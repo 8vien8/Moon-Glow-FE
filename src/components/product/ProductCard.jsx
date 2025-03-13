@@ -1,9 +1,18 @@
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
+    const navigate = useNavigate();
+
+    const handleProductClick = () => {
+        navigate(`/product/${product._id}`);
+    };
+
     return (
         <div className="group relative w-40 sm:w-44 rounded-lg overflow-hidden shadow-md transition-all duration-300 mx-1 
-                        hover:shadow-xl hover:scale-105 hover:brightness-105">
+                        hover:shadow-xl hover:scale-105 hover:brightness-105"
+            onClick={handleProductClick}
+        >
             {/* Product Image */}
             <img
                 src={product.image[0]}
@@ -40,6 +49,7 @@ ProductCard.propTypes = {
         image: PropTypes.arrayOf(PropTypes.string).isRequired,
         status: PropTypes.string.isRequired,
     }).isRequired,
+
 };
 
 export default ProductCard;

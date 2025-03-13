@@ -1,11 +1,14 @@
 import { useState, useEffect, useRef } from "react";
-import { Menu, CircleX, House, Inbox, ShoppingBasket, PawPrint } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+
+// Import icons
+import { Menu, CircleX, House, Inbox, ShoppingBasket, PawPrint } from "lucide-react";
 
 const Sidebar = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const sidebarRef = useRef(null);
     const navigate = useNavigate();
+
+    const sidebarRef = useRef(null);
 
     useEffect(() => {
         const handleClickOutside = (e) => {

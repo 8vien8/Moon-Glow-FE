@@ -1,25 +1,30 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 // services
 import usePosterService from "../services/poster";
 
 // components
 import Loading from "../components/Loading";
-import PosterSlides from "../components/home/PosterSlides";
+import ImageSlide from "../components/home/ImageSlide";
 import Category from "../components/home/Category";
 import Product from "../components/home/Product";
-import Contact from "../components/home/Contact";
+import Contact from "../pages/Contact";
 
 function Home() {
-    const [posters, setPosters] = useState([]);
     const posterService = usePosterService();
+    const [images, setImages] = useState([]);
     const [loading, setLoading] = useState(true);
+
+    const isFetched = useRef(false)
 
     useEffect(() => {
         const fetchPosters = async () => {
-            const data = await posterService.getPosters();
-            setPosters(data);
-            setLoading(false);
+            if (!isFetched.current) {
+                const data = await posterService.getPosters();
+                setImages(data);
+                setLoading(false);
+                isFetched.current = true;
+            }
         };
         fetchPosters();
     }, [posterService]);
@@ -30,7 +35,7 @@ function Home() {
 
     return (
         <div className="p-2">
-            <PosterSlides posters={posters} />
+            <ImageSlide images={images} />
             <Category />
             <Product />
             <Contact />

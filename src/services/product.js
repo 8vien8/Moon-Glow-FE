@@ -13,8 +13,18 @@ const useProductService = () => {
         }
     };
 
+    const getProductById = async (productId) => {
+        try {
+            const response = await axios.get(`${API_URL}/${productId}`);
+            return response.data;
+        } catch (error) {
+            console.error("Error fetching product by ID:", error.message);
+        }
+    };
+
     return {
-        getProducts
+        getProducts,
+        getProductById
     }
 }
 
