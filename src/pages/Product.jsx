@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 // Import components
 import ProductCard from "../components/product/ProductCard";
 import FilterBar from "../components/product/FilterBar";
-import Loading from "../components/Loading";
+// import Loading from "../components/Loading";
 
 // Import services
 import useProductService from "../services/product";
@@ -23,7 +23,7 @@ function Product() {
     const [category, setCategory] = useState(initialCategory);
     const [status, setStatus] = useState("All Status");
     const [sortBy, setSortBy] = useState("default");
-    const [loading, setLoading] = useState(true);
+    // const [loading, setLoading] = useState(true);
     const [animate, setAnimate] = useState(false);
 
     const isFetched = useRef(false);
@@ -35,7 +35,7 @@ function Product() {
                 const data = await productService.getProducts();
                 setProducts(data);
                 setFilteredProducts(data);
-                setLoading(false);
+                // setLoading(false);
                 isFetched.current = true;
             }
         };
@@ -74,8 +74,7 @@ function Product() {
         return acc;
     }, {});
 
-    // If loading, show loading component
-    if (loading) return <Loading />;
+    // if (loading) return <Loading />;
 
     return (
         <div className="p-4 mx-2">
@@ -105,7 +104,7 @@ function Product() {
 const CategorySection = ({ category, products, animate }) => (
     <div className={`mb-6 transition-opacity duration-500 ease-in-out ${animate ? 'opacity-100' : 'opacity-0'}`}>
         <h3 className="font-semibold text-red-700 mb-4">{category}</h3>
-        <div className={`flex gap-4 overflow-x-auto transition-transform duration-500 ease-in-out transform ${animate ? 'scale-100' : 'scale-95'}`}>
+        <div className={`flex flex-wrap justify-center gap-4 overflow-x-auto transition-transform duration-500 ease-in-out transform ${animate ? 'scale-100' : 'scale-95'}`}>
             {products.length > 0 ? (
                 products.map(product => <ProductCard key={product._id} product={product} />)
             ) : (

@@ -25,6 +25,7 @@ const FilterBar = ({ category, setCategory, status, setStatus, sortBy, setSortBy
                     className="w-full sm:w-44 p-2 border border-gray-400 shadow-lg rounded-lg transition duration-300 ease-in-out focus:ring-2 focus:ring-red-500 focus:border-red-500 hover:bg-gray-100"
                     value={value}
                     onChange={(e) => setValue(e.target.value)}
+                    aria-label={labels ? labels[0] : options[0]}
                 >
                     {options.map((option, i) => (
                         <option key={option} value={option}>

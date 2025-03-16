@@ -1,13 +1,12 @@
 import { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
-// Import icons
 import { Menu, CircleX, House, Inbox, ShoppingBasket, PawPrint } from "lucide-react";
 
 const Sidebar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const navigate = useNavigate();
-
+    const location = useLocation();
     const sidebarRef = useRef(null);
 
     useEffect(() => {
@@ -23,10 +22,12 @@ const Sidebar = () => {
         setIsOpen(false);
     };
 
-    const menuItems = [{ label: "Home", icon: <House />, path: "/" },
-    { label: "Product", icon: <ShoppingBasket />, path: "/product" },
-    { label: "Contact", icon: <Inbox />, path: "/contact" },
-    { label: "About", icon: <PawPrint />, path: "/about" }]
+    const menuItems = [
+        { label: "Home", icon: <House />, path: "/" },
+        { label: "Product", icon: <ShoppingBasket />, path: "/product" },
+        { label: "Contact", icon: <Inbox />, path: "/contact" },
+        { label: "About", icon: <PawPrint />, path: "/about" },
+    ];
 
     return (
         <div ref={sidebarRef}>
@@ -51,15 +52,16 @@ const Sidebar = () => {
                 ${isOpen ? "translate-x-0 opacity-100 max-h-[240px]" : "-translate-x-4 opacity-0 max-h-0 pointer-events-none"}`}
             >
                 <ul className="space-y-3 text-gray-800">
-                    {menuItems
-                        .map(({ label, icon, path }, index) => (
-                            <li key={index}
-                                onClick={() => handleNavigation(path)}
-                                className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 hover:text-red-500 hover:font-bold transition duration-200 "
-                            >
-                                {icon} {label}
-                            </li>
-                        ))}
+                    {menuItems.map(({ label, icon, path }, index) => (
+                        <li
+                            key={index}
+                            onClick={() => handleNavigation(path)}
+                            className={`flex items-center gap-3 p-2 rounded-lg transition duration-200 cursor-pointer 
+                                ${location.pathname === path ? "bg-gray-50 text-red-500 font-bold" : "hover:bg-gray-50 hover:text-red-500 hover:font-bold"}`}
+                        >
+                            {icon} {label}
+                        </li>
+                    ))}
                 </ul>
             </div>
         </div>

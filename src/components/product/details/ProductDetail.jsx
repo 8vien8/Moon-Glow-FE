@@ -62,12 +62,12 @@ function ProductDetails() {
             {/* Product Card */}
             <div className="shadow-xl rounded-xl overflow-hidden flex flex-col md:flex-row p-6 gap-6">
                 {/* Product Image */}
-                <div className="md:w-2/3 w-full">
+                <div className="md:w-3/5 w-full">
                     <ImageSlide images={[{ image: product.image }]} />
                 </div>
 
                 {/* Product Details */}
-                <div className="md:w-1/3 w-full flex flex-col justify-center items-start gap-2">
+                <div className="md:w-2/5 w-full flex flex-col justify-center items-start gap-2">
                     <h2 className="text-gray-800">{product.name}</h2>
 
                     <p className="text-gray-500 font-medium">Category:
@@ -83,6 +83,8 @@ function ProductDetails() {
                         </span>
                     </p>
 
+                    <p className="text-lg text-gray-700 mt-2">{product.description}</p>
+
                     {/* Action Button */}
                     <a
                         href="https://www.instagram.com/lazzy.meozz"
@@ -97,10 +99,6 @@ function ProductDetails() {
                     <p className="mt-6 text-red-600 italic font-medium">Contact Instagram for buying and ordering</p>
                 </div>
             </div>
-
-            {/* Product Description */}
-            <h3 className="mt-4 text-gray-900 mb-4">About Product</h3>
-            <p className="text-lg text-gray-700 mt-2">{product.description}</p>
         </div>
 
     );
