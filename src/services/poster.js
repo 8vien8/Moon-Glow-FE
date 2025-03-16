@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/posters';
+const API_URL = 'https://moon-glow-store.onrender.com/api/posters';
 
 const usePosterService = () => {
 
