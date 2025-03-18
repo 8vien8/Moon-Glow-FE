@@ -2,27 +2,19 @@ import PropTypes from "prop-types";
 
 const Button = ({ children, onClick, type = "button", variant = "primary", className = "", disabled = false }) => {
     const variants = {
-        primary: "relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-black rounded-lg group bg-gradient-to-br from-[#D7B899] to-[#C9A783] group-hover:from-[#C9A783] group-hover:to-[#B89A70] hover:text-white dark:text-[#4A2F27] transition-transform transform hover:scale-105 hover:shadow-lg duration-300",
-        secondary: "relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-white rounded-lg group bg-gradient-to-br from-[#8C5E38] to-[#6F4526] group-hover:from-[#6F4526] group-hover:to-[#4E2F18] hover:text-white dark:text-[#E8D8C4] transition-transform transform hover:scale-105 hover:shadow-lg duration-300",
-        danger: "relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-white rounded-lg group bg-gradient-to-br from-[#B63D2D] to-[#7D241A] group-hover:from-[#9A3224] group-hover:to-[#5E1A12] hover:text-white dark:text-[#301B17] transition-transform transform hover:scale-105 hover:shadow-lg duration-300",
-    };
-
-    const span = {
-        primary: "relative px-5 py-2.5 transition-all ease-in duration-75 bg-[#FAF0E6] dark:bg-[#FAF0E6] rounded-md group-hover:bg-transparent group-hover:dark:bg-transparent transition-transform transform hover:scale-115 hover:shadow-lg duration-300",
-        secondary: "relative px-5 py-2.5 transition-all ease-in duration-75 bg-[#A97142] dark:bg-[#A97142] rounded-md group-hover:bg-transparent group-hover:dark:bg-transparent transition-transform transform hover:scale-115 hover:shadow-lg duration-300",
-        danger: "relative px-5 py-2.5 transition-all ease-in duration-75 bg-[#E06B5C] dark:bg-[#E06B5C] rounded-md group-hover:bg-transparent group-hover:dark:bg-transparent transition-transform transform hover:scale-115 hover:shadow-lg duration-300",
+        primary: "relative inline-flex items-center justify-center px-6 py-3 text-md font-semibold text-white rounded-lg shadow-md transition-all duration-400 ease-in-out bg-gradient-to-r from-[#d9a877] to-[#b98456] hover:from-[#c99a66] hover:to-[#a57545] focus:ring-4 focus:ring-[#b98456]/50 focus:outline-none hover:scale-105",
+        secondary: "relative inline-flex items-center justify-center px-6 py-3 text-md font-semibold text-white rounded-lg shadow-md transition-all duration-400 ease-in-out bg-gradient-to-r from-[#7f5539] to-[#6b4226] hover:from-[#9c6644] hover:to-[#593c22] focus:ring-4 focus:ring-[#6b4226]/50 focus:outline-none hover:scale-105",
+        danger: "relative inline-flex items-center justify-center px-6 py-3 text-md font-semibold text-white rounded-lg shadow-md transition-all duration-400 ease-in-out bg-gradient-to-r from-[#e63946] to-[#b2182e] hover:from-[#d62839] hover:to-[#901c27] focus:ring-4 focus:ring-[#b2182e]/50 focus:outline-none hover:scale-105",
     };
 
     return (
         <button
             type={type}
             onClick={onClick}
-            className={` ${variants[variant] || ""} ${className}`}
+            className={`${variants[variant]} ${className} ${disabled ? "opacity-50 cursor-not-allowed hover:scale-100" : ""}`}
             disabled={disabled}
         >
-            <span className={` ${span[variant] || ""}`}>
-                {children}
-            </span>
+            {children}
         </button>
     );
 };

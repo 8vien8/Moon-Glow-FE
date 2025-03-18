@@ -1,9 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
-import PropTypes from "prop-types";
 
 // Import components
-import ProductCard from "../components/product/ProductCard";
+import CategorySection from "../components/product/ProductSection";
 import FilterBar from "../components/product/FilterBar";
 // import Loading from "../components/Loading";
 
@@ -21,8 +20,7 @@ function Product() {
     const [products, setProducts] = useState([]);
     const [filteredProducts, setFilteredProducts] = useState([]);
     const [category, setCategory] = useState(initialCategory);
-    const [status, setStatus] = useState("All Status");
-    const [sortBy, setSortBy] = useState("default");
+    const [sortBy, setSortBy] = useState("All Price");
     // const [loading, setLoading] = useState(true);
     const [animate, setAnimate] = useState(false);
 
@@ -50,13 +48,10 @@ function Product() {
             filtered = filtered.filter(product => product.category === category);
         }
 
-        if (status !== "All Status") {
-            filtered = filtered.filter(product => product.status === status);
-        }
-
-        if (sortBy === "priceLowToHigh") {
+        // Fix sorting condition to match dropdown values
+        if (sortBy === "Price: Low to High") {
             filtered.sort((a, b) => a.price - b.price);
-        } else if (sortBy === "priceHighToLow") {
+        } else if (sortBy === "Price: High to Low") {
             filtered.sort((a, b) => b.price - a.price);
         }
 
@@ -65,7 +60,8 @@ function Product() {
             setFilteredProducts(filtered);
             setAnimate(true);
         }, 200);
-    }, [category, status, sortBy, products]);
+    }, [category, sortBy, products]);
+
 
     // Categories to be displayed
     const categoriesToDisplay = ["Phone Strap", "Candles", "Key Chains", "Wool Products"];
@@ -82,8 +78,6 @@ function Product() {
             <FilterBar
                 category={category}
                 setCategory={setCategory}
-                status={status}
-                setStatus={setStatus}
                 sortBy={sortBy}
                 setSortBy={setSortBy}
             />
@@ -99,25 +93,5 @@ function Product() {
         </div>
     );
 }
-
-// Reusable Component for Rendering Product Sections
-const CategorySection = ({ category, products, animate }) => (
-    <div className={`mb-6 transition-opacity duration-500 ease-in-out ${animate ? 'opacity-100' : 'opacity-0'}`}>
-        <h3 className="font-semibold text-red-700 mb-4">{category}</h3>
-        <div className={`flex flex-wrap justify-center gap-4 overflow-x-auto transition-transform duration-500 ease-in-out transform ${animate ? 'scale-100' : 'scale-95'}`}>
-            {products.length > 0 ? (
-                products.map(product => <ProductCard key={product._id} product={product} />)
-            ) : (
-                <p className="w-full text-center text-gray-500 font-semibold">No products found.</p>
-            )}
-        </div>
-    </div>
-);
-
-CategorySection.propTypes = {
-    category: PropTypes.string.isRequired,
-    products: PropTypes.arrayOf(PropTypes.object).isRequired,
-    animate: PropTypes.bool.isRequired,
-};
 
 export default Product;

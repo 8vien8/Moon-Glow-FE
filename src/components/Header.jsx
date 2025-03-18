@@ -8,8 +8,8 @@ function Header({ className }) {
         navigate('/')
     }
     return (
-        <header className={`${className}`} onClick={backToHomePage}>
-            <h1 className="font-[Dancing_Script] text-red-700">
+        <header className={`${className}`} >
+            <h1 onClick={backToHomePage} className="font-[Dancing_Script] text-red-700">
                 Moon Glow
             </h1>
         </header>

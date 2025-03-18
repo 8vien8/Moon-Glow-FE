@@ -7,8 +7,8 @@ import usePosterService from "../services/poster";
 // import Loading from "../components/Loading";
 import ImageSlide from "../components/home/ImageSlide";
 import Category from "../components/home/Category";
-import Product from "../components/home/Product";
 import Contact from "../pages/Contact";
+import Introduction from "../components/home/Introduction";
 
 function Home() {
     const posterService = usePosterService();
@@ -29,15 +29,11 @@ function Home() {
         fetchPosters();
     }, [posterService]);
 
-    // if (loading) {
-    //     return <Loading />;
-    // }
-
     return (
         <div className="p-2">
             <ImageSlide images={images} />
             <Category />
-            <Product />
+            <Introduction />
             <Contact />
         </div>
     );

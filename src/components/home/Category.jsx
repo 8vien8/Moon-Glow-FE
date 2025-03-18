@@ -24,19 +24,26 @@ function Category() {
                 {categories.map((item, index) => (
                     <li
                         key={index}
-                        className="group p-4 rounded-lg flex flex-col items-center gap-3 shadow-md 
+                        className="group p-4 rounded-lg flex flex-col items-center gap-3 shadow-md
                                    transition-transform transform hover:scale-105 hover:shadow-lg duration-300 cursor-pointer"
                         onClick={() => handleCategoryClick(item)}
                     >
-                        <img className="w-24 h-24 object-cover rounded-full" src={sources[index]} alt={item} />
-                        <span className="text-center text-sm md:text-base font-medium text-gray-800">{item}</span>
+                        <img
+                            className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 xl:w-36 xl:h-36 object-cover rounded-full transition-all duration-300"
+                            src={sources[index]}
+                            alt={item}
+                        />
+
+                        <h5 className="font-[Playwrite_IT_Moderna] text-center text-sm md:text-base font-medium text-red-700">
+                            {item}
+                        </h5>
                     </li>
                 ))}
             </div>
 
             <div className="mt-6 flex justify-center">
                 <Button variant="secondary" onClick={() => navigate('/product')}>
-                    Explore All
+                    Tất cả sản phẩm
                 </Button>
             </div>
         </div>
