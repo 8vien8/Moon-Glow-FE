@@ -9,7 +9,7 @@ const CategorySection = ({ category, products, animate }) => (
             {category}
         </h3>
 
-        <div className={`grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 gap-6 
+        <div className={`grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-7 gap-4 
             min-h-[300px] place-items-center
             transition-transform duration-500 ease-in-out
             ${animate ? "scale-100" : "scale-95 opacity-90"}`}
