@@ -10,7 +10,7 @@ const ProductCard = ({ product }) => {
 
     return (
         <div
-            className="group relative w-44 sm:w-56 md:w-60 h-66 sm:h-82 md:h-98 rounded-lg overflow-hidden 
+            className="group relative w-42 sm:w-56 md:w-60 h-66 sm:h-82 md:h-98 rounded-lg overflow-hidden 
                        shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105 hover:brightness-105 
                        bg-pink-50 flex flex-col border-3 border-pink-100"
             onClick={handleProductClick}
