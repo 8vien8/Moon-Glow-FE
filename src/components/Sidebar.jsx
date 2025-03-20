@@ -25,9 +25,9 @@ const Sidebar = () => {
     const menuItems = [
         { label: "Home", icon: <House />, path: "/" },
         { label: "Product", icon: <ShoppingBasket />, path: "/product" },
+        { label: "Workshop", icon: <PartyPopper />, path: "/events" },
         { label: "Contact", icon: <Inbox />, path: "/contact" },
         { label: "About", icon: <PawPrint />, path: "/about" },
-        { label: "Events", icon: <PartyPopper />, path: "/events" },
 
     ];
 
