@@ -75,7 +75,7 @@ function ProductDetails() {
                         </span>
                     </p>
                     <p className="text-gray-600 font-medium">Giá:
-                        <span className="ml-2 text-red-600 text-2xl font-bold">
+                        <span className="ml-2 text-gray-700 text-2xl font-bold">
                             {new Intl.NumberFormat("vi-VN", {
                                 style: "decimal",
                                 minimumFractionDigits: 0
@@ -90,7 +90,7 @@ function ProductDetails() {
                         href="https://www.instagram.com/lazzy.meozz"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center mt-6 gap-3 p-3 rounded-lg shadow-lg transition-all duration-300 hover:bg-gradient-to-r from-red-300 to-red-400 hover:scale-105 hover:shadow-xl"
+                        className="flex items-center mt-6 gap-3 p-3 rounded-lg shadow-lg transition-all duration-300 hover:bg-gradient-to-r from-red-200 to-red-300 hover:scale-105 hover:shadow-xl"
                     >
                         <img src="/instagram.png" alt="Instagram" className="w-10 h-10" />
                         <span className="text-gray-800 font-medium overflow-hidden">Liên hệ MoonGlow trên Instagram</span>

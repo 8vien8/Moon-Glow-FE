@@ -7,7 +7,7 @@ function MainLayout() {
     return (
         <div className="flex min-h-screen">
             {/* Sidebar with responsive margin */}
-            <aside className="fixed z-50 m-2 sm:m-5">
+            <aside className="fixed z-50 m-4 sm:m-6">
                 <Sidebar />
             </aside>
 

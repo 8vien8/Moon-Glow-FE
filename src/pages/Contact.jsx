@@ -12,7 +12,7 @@ function Contact() {
                         href="https://www.instagram.com/lazzy.meozz"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-4 p-3 rounded-lg shadow-lg transition-all duration-300 hover:bg-gradient-to-r from-red-300 to-red-500 hover:scale-105 hover:shadow-xl"                    >
+                        className="flex items-center gap-4 p-3 rounded-lg shadow-lg transition-all duration-300 hover:bg-gradient-to-r from-red-200 to-red-300 hover:scale-105 hover:shadow-xl"                    >
                         <img src="/instagram.png" alt="Instagram" className="w-10 h-10" />
                         <span className="text-gray-800 font-medium overflow-hidden">GlowMoon Store</span>
                     </a>
@@ -31,7 +31,7 @@ function Contact() {
                         href="https://www.tiktok.com/@lazzy.meozz"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-4 p-3 rounded-lg shadow-lg transition-all duration-300 hover:bg-gradient-to-r from-green-300  via-blue-400 to-red-500  hover:scale-105 hover:shadow-xl"                    >
+                        className="flex items-center gap-4 p-3 rounded-lg shadow-lg transition-all duration-300 hover:bg-gradient-to-r from-pink-200 to-pink-300 hover:scale-105 hover:shadow-xl"                    >
                         <img src="https://img.icons8.com/?size=100&id=118640&format=png&color=000000" alt="TikTok" className="w-10 h-10" />
                         <span className="text-gray-800 font-medium overflow-hidden">GlowMoon Store</span>
                     </a>

@@ -64,7 +64,7 @@ function Product() {
 
 
     // Categories to be displayed
-    const categoriesToDisplay = ["Phone Strap", "Candles", "Key Chains", "Wool Products"];
+    const categoriesToDisplay = ["Phone Strap", "Key Chains", "Candles", "Wool Products"];
     const groupedProducts = categoriesToDisplay.reduce((acc, cat) => {
         acc[cat] = filteredProducts.filter(product => product.category === cat);
         return acc;

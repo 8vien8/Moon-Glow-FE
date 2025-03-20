@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
-import { Menu, CircleX, House, Inbox, ShoppingBasket, PawPrint } from "lucide-react";
+import { Menu, CircleX, House, Inbox, ShoppingBasket, PawPrint, PartyPopper } from "lucide-react";
 
 const Sidebar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -27,6 +27,8 @@ const Sidebar = () => {
         { label: "Product", icon: <ShoppingBasket />, path: "/product" },
         { label: "Contact", icon: <Inbox />, path: "/contact" },
         { label: "About", icon: <PawPrint />, path: "/about" },
+        { label: "Events", icon: <PartyPopper />, path: "/events" },
+
     ];
 
     return (
@@ -36,20 +38,20 @@ const Sidebar = () => {
                 <Menu
                     color="#cb1515"
                     strokeWidth={2.5}
-                    size={42}
+                    size={40}
                     className={`absolute transition-transform duration-300 ${isOpen ? "opacity-0 rotate-90 scale-0" : "opacity-100 rotate-0 scale-100"}`}
                 />
                 <CircleX
                     color="#cb1515"
                     strokeWidth={2.5}
-                    size={42}
+                    size={40}
                     className={`absolute transition-transform duration-300 ${isOpen ? "opacity-100 rotate-0 scale-100" : "opacity-0 -rotate-90 scale-0"}`}
                 />
             </button>
 
             {/* Sidebar Menu */}
             <div className={`absolute left-0 sm:left-2 top-16 w-36 bg-red-300 shadow-lg rounded-xl p-4 transition-all duration-500 ease-in-out 
-                ${isOpen ? "translate-x-0 opacity-100 max-h-[240px]" : "-translate-x-4 opacity-0 max-h-0 pointer-events-none"}`}
+                ${isOpen ? "translate-x-0 opacity-100 max-h-[280px]" : "-translate-x-4 opacity-0 max-h-0 pointer-events-none"}`}
             >
                 <ul className="space-y-3 text-gray-800">
                     {menuItems.map(({ label, icon, path }, index) => (
