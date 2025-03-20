@@ -50,7 +50,7 @@ const Sidebar = () => {
             </button>
 
             {/* Sidebar Menu */}
-            <div className={`absolute left-0 sm:left-2 top-16 w-36 bg-red-300 shadow-lg rounded-xl p-4 transition-all duration-500 ease-in-out 
+            <div className={`absolute left-0 sm:left-2 top-16 w-44 bg-red-300 shadow-lg rounded-xl p-4 transition-all duration-500 ease-in-out 
                 ${isOpen ? "translate-x-0 opacity-100 max-h-[280px]" : "-translate-x-4 opacity-0 max-h-0 pointer-events-none"}`}
             >
                 <ul className="space-y-3 text-gray-800">
