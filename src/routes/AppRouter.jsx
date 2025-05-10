@@ -19,17 +19,15 @@ const AppRouter = () => {
     return (
         <Router>
             <Routes>
-                <Route exact path="/">
-                    <Route exact path="/" element={<MainLayout />}>
-                        <Route exact path="/" element={<Home />} />
-                        <Route exact path="/product" element={<Product />} />
-                        <Route exact path="/product/:id" element={<ProductDetails />} />
-                        <Route exact path="/about" element={<About />} />
-                        <Route exact path="/contact" element={<Contact />} />
-                        <Route exact path="/events" element={<Events />} />
-                    </Route>
-                    <Route exact path="/login" element={<Login />} />
+                <Route exact path="/" element={<MainLayout />}>
+                    <Route exact path="/" element={<Home />} />
+                    <Route exact path="/product" element={<Product />} />
+                    <Route exact path="/product/:id" element={<ProductDetails />} />
+                    <Route exact path="/about" element={<About />} />
+                    <Route exact path="/contact" element={<Contact />} />
+                    <Route exact path="/events" element={<Events />} />
                 </Route>
+                <Route exact path="/login" element={<Login />} />
             </Routes>
         </Router>
     )
