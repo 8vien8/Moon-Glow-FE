@@ -5,7 +5,7 @@ import Header from "../components/Header";
 
 function MainLayout() {
     return (
-        <div className="flex min-h-screen">
+        <div className="flex min-h-screen body-1">
             {/* Sidebar with responsive margin */}
             <aside className="fixed z-50 m-4 sm:m-6">
                 <Sidebar />

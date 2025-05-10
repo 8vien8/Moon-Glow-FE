@@ -9,6 +9,7 @@ import About from "../pages/About";
 import Contact from "../pages/Contact";
 import Product from "../pages/Product";
 import Events from "../pages/Events";
+import Login from "../components/form/Login";
 
 // Import components
 import ProductDetails from "../components/product/details/ProductDetail";
@@ -26,6 +27,7 @@ const AppRouter = () => {
                     <Route exact path="/contact" element={<Contact />} />
                     <Route exact path="/events" element={<Events />} />
                 </Route>
+                <Route exact path="/login" element={<Login />} />
             </Routes>
         </Router>
     )

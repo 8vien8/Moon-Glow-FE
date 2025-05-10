@@ -10,7 +10,7 @@ const ProductCard = ({ product }) => {
 
     return (
         <div
-            className="group relative w-38 sm:w-56 md:w-60 h-66 sm:h-82 md:h-98 rounded-lg overflow-hidden 
+            className="group relative h-66 sm:h-82 md:h-98 rounded-lg overflow-hidden 
                        shadow-md transition-all duration-300 hover:shadow-xl hover:scale-105 hover:brightness-105 
                        bg-pink-50 flex flex-col border-3 border-pink-100"
             onClick={handleProductClick}
@@ -36,7 +36,7 @@ const ProductCard = ({ product }) => {
             {/* Product Info */}
             <div className="flex flex-col justify-center items-center h-1/6 text-center">
                 {/* Product Name */}
-                <h5 className="font-[Playwrite_IT_Moderna] text-gray-700  text-sm sm:text-base">{product.name}</h5>
+                <h5 className="font-[Playwrite_IT_Moderna] text-gray-700 text-sm sm:text-base line-clamp-1">{product.name}</h5>
                 {/* <p className="text-red-600 font-semibold text-sm sm:text-base">
                     {new Intl.NumberFormat("vi-VN", {
                         style: "decimal",
