@@ -6,5 +6,11 @@ export default defineConfig({
   plugins: [
     tailwindcss(),
     react()],
-  base: '/'
+  base: '/',
+  build: {
+    outDir: 'dist',
+    rollupOptions: {
+      input: '/index.html',
+    },
+  },
 })

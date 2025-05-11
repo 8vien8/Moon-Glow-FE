@@ -20,7 +20,7 @@ const AppRouter = () => {
         <Router>
             <Routes>
                 <Route exact path="/" element={<MainLayout />}>
-                    <Route exact path="/" element={<Home />} />
+                    <Route index element={<Home />} />
                     <Route exact path="/product" element={<Product />} />
                     <Route exact path="/product/:id" element={<ProductDetails />} />
                     <Route exact path="/about" element={<About />} />
