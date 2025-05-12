@@ -57,7 +57,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     useEffect(() => {
-        if (!dataFetched && user != null) {
+        if (!dataFetched) {
             fetchUser();  // Gọi API fetch user
         }
     }, [fetchUser, dataFetched, user]);
