@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth'; // <-- Đảm bảo đường dẫn đúng với file useAuth
 
@@ -9,10 +9,16 @@ const Login = () => {
     const [loading, setLoading] = useState(false);
 
     const navigate = useNavigate();
-    const { login, error } = useAuth(); // <-- lấy login từ context
+    const { login, error, user } = useAuth(); // <-- lấy login từ context
 
     const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     const validatePassword = (password) => password.length >= 8;
+
+    useEffect(() => {
+        if (user) {
+            navigate('/admin/dashboard'); // <-- chuyển hướng nếu đã đăng nhập
+        }
+    }, [user, navigate]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -35,11 +41,11 @@ const Login = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-100">
+        <div className="min-h-screen bg-black">
             <div className="min-h-screen flex">
                 <div className="w-full lg:w-1/2 flex items-center justify-center p-8">
                     <div className="w-full max-w-md">
-                        <div className="bg-white rounded-2xl shadow-xl p-8">
+                        <div className="bg-gray-100 rounded-2xl shadow-2xl shadow-gray-500 p-8">
                             <div className="text-center mb-8">
                                 <div className="inline-flex items-center justify-center w-16 h-16 bg-red-100 rounded-full mb-4">
                                     <img src="./logo.jpg" alt="Logo" className="rounded-full" />

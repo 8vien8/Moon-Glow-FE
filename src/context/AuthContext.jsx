@@ -18,10 +18,12 @@ export const AuthProvider = ({ children }) => {
         try {
             setLoading(true);
             const res = await authService.getMe();
-            if (res.status !== 200) {
+            if (!res || !res.user) {
+                setUser(null);
                 throw new Error("Failed to fetch user");
             }
-            setUser(res.data.user);
+            setUser(res.user);
+            console.log("User data:", res.user);
             setDataFetched(true); // Đánh dấu là đã lấy dữ liệu
         } catch (err) {
             setUser(null);
@@ -36,7 +38,7 @@ export const AuthProvider = ({ children }) => {
     const login = async ({ email, password }) => {
         try {
             const res = await authService.login({ email, password });
-            setUser(res.data);
+            setUser(res);
             setError(null);
         } catch (err) {
             setError(err.response?.data?.error || "Login failed");
