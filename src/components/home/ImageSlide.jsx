@@ -17,6 +17,19 @@ import "swiper/css/effect-fade";
 function ImageSlide({ images }) {
     const [disablePrev, setDisablePrev] = useState(true);
     const [disableNext, setDisableNext] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+
+
+    // Check if the screen size is mobile or desktop
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 769);
+        };
+        handleResize();
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
 
     useEffect(() => {
         const swiperInstance = document.querySelector(".swiper").swiper;
@@ -30,11 +43,14 @@ function ImageSlide({ images }) {
 
     return (
         <div className="relative w-full px-2 h-[50vh] sm:h-[68vh]">
+
             {/* Left Navigation Button */}
             <button
                 id="swiper-prev"
                 className={`absolute top-1/2 left-2 sm:left-4 z-10 p-3 sm:p-4 bg-white rounded-full shadow-lg text-red-700 
-                transition-all duration-300 ${disablePrev ? "opacity-50 cursor-not-allowed" : "opacity-100 hover:bg-red-300"}`}
+                transition-all duration-300 
+                ${disablePrev ? "opacity-50 cursor-not-allowed" : "opacity-100 hover:bg-red-300"}
+                ${isMobile ? "hidden" : "block"}`}
                 disabled={disablePrev}
             >
                 <ChevronLeft size={28} strokeWidth={3} />
@@ -44,7 +60,9 @@ function ImageSlide({ images }) {
             <button
                 id="swiper-next"
                 className={`absolute top-1/2 right-2 sm:right-4 z-10 p-3 sm:p-4 bg-white rounded-full shadow-lg text-red-700
-                transition-all duration-300 ${disableNext ? "opacity-50 cursor-not-allowed" : "opacity-100 hover:bg-red-300"}`}
+                transition-all duration-300 
+                ${disableNext ? "opacity-50 cursor-not-allowed" : "opacity-100 hover:bg-red-300"}
+                ${isMobile ? "hidden" : "block"}`}
                 disabled={disableNext}
             >
                 <ChevronRight size={28} strokeWidth={3} />

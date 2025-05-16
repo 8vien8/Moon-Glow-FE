@@ -10,7 +10,7 @@ function Header({ className }) {
     return (
         <header className={`${className}`} >
             <h1 onClick={backToHomePage} className="font-[Dancing_Script] text-red-700">
-                Moon Glow
+                Lazzy Meow
             </h1>
         </header>
     )

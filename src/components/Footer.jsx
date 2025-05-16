@@ -17,7 +17,7 @@ function Footer({ className }) {
                 </p>
             </div>
 
-            <p className="text-gray-500 mt-2">© 2025 MoonGlow Website. All rights reserved.</p>
+            <p className="text-gray-500 mt-2">© 2025 Lazzy Meow Website. All rights reserved.</p>
         </footer>
     );
 }

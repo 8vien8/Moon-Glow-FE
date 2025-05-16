@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth'; // <-- Đảm bảo đường dẫn đúng với file useAuth
 
@@ -9,16 +9,10 @@ const Login = () => {
     const [loading, setLoading] = useState(false);
 
     const navigate = useNavigate();
-    const { login, error, user } = useAuth(); // <-- lấy login từ context
+    const { login, error } = useAuth(); // <-- lấy login từ context
 
     const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     const validatePassword = (password) => password.length >= 8;
-
-    useEffect(() => {
-        if (user) {
-            navigate('/admin/dashboard'); // <-- chuyển hướng nếu đã đăng nhập
-        }
-    }, [user, navigate]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -30,8 +24,8 @@ const Login = () => {
 
         try {
             setLoading(true);
-            await login({ email, password }); // <-- gọi login với email và password
-            navigate('/admin/dashboard');     // <-- chuyển hướng sau khi login thành công
+            await login({ email, password }); 
+            navigate('/admin/dashboard');
         } catch (err) {
             alert("Login failed. Please try again.");
             console.error("Login error:", err);

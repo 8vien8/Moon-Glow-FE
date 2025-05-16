@@ -12,7 +12,7 @@ function Category() {
         '/candle.jpg',
         '/wool.jpg',
         '/keychain.jpg',
-    ];
+    ]
 
     const handleCategoryClick = (category) => {
         navigate(`/product?category=${encodeURIComponent(category)}`);
@@ -21,21 +21,21 @@ function Category() {
     return (
         <div className="mt-5 px-2 flex flex-col w-full">
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full mx-auto mt-3">
-                {categories.map((item, index) => (
+                {categories.map((category, index) => (
                     <li
                         key={index}
                         className="group p-4 rounded-lg flex flex-col items-center gap-3 shadow-md
                                    transition-transform transform hover:scale-105 hover:shadow-lg duration-300 cursor-pointer"
-                        onClick={() => handleCategoryClick(item)}
+                        onClick={() => handleCategoryClick(category)}
                     >
                         <img
                             className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 xl:w-36 xl:h-36 object-cover rounded-full transition-all duration-300"
                             src={sources[index]}
-                            alt={item}
+                            alt={category}
                         />
 
                         <h5 className="font-[Playwrite_IT_Moderna] text-center text-sm md:text-base font-medium text-red-700">
-                            {item}
+                            {category}
                         </h5>
                     </li>
                 ))}

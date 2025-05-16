@@ -5,6 +5,23 @@ const API_URL = axios.create({
     withCredentials: true
 })
 
+let logoutCallback = null
+
+export const registerLogoutCallback = (callback) => {
+    logoutCallback = callback
+}
+
+API_URL.interceptors.response.use(
+    response => response,
+    error => {
+        if (error.response?.status === 401) {
+            if (logoutCallback) logoutCallback();
+        }
+        return Promise.reject(error);
+    }
+);
+
+
 const useAuthService = () => {
     const login = async ({ email, password }) => {
         try {
@@ -12,7 +29,7 @@ const useAuthService = () => {
             return response.data;
         } catch (error) {
             console.error("Error logging in:", error.message);
-            return null;
+            throw error
         }
     };
 
@@ -22,7 +39,7 @@ const useAuthService = () => {
             return response.data;
         } catch (error) {
             console.error("Error logging out:", error.message);
-            return null;
+            throw error
         }
     };
 
@@ -32,14 +49,26 @@ const useAuthService = () => {
             return response.data;
         } catch (error) {
             console.error("Error fetching user data:", error.message);
-            return null;
+            throw error
         }
     };
+
+    const refreshToken = async () => {
+        try {
+            const response = await API_URL.post('/refresh-token', null);
+            return response.data;
+        } catch (error) {
+            console.error("Error refreshing token:", error.message);
+            throw error
+        }
+    }
 
     return {
         login,
         logout,
-        getMe
+        getMe,
+        refreshToken,
+        registerLogoutCallback
     };
 }
 

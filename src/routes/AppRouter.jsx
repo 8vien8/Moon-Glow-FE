@@ -9,12 +9,12 @@ import About from "../pages/About";
 import Contact from "../pages/Contact";
 import Product from "../pages/Product";
 import Events from "../pages/Events";
-import Login from "../components/form/Login";
 import AdminLayout from "../layouts/AdminLayout";
 
 // Import components
-import PrivateRoute from "./PrivateRoute";
 import ProductDetails from "../components/product/details/ProductDetail";
+import Login from "../components/form/Login";
+import PrivateRoute from "./PrivateRoute";
 
 const AppRouter = () => {
 
@@ -35,12 +35,7 @@ const AppRouter = () => {
                 {/* Private routes */}
                 <Route element={<PrivateRoute allowedRoles={["admin"]} />}>
                     <Route exact path="/admin/dashboard" element={<AdminLayout />}>
-                        {/* <Route index element={<Home />} />
-                        <Route exact path="/admin/product" element={<Product />} />
-                        <Route exact path="/admin/product/:id" element={<ProductDetails />} />
-                        <Route exact path="/admin/about" element={<About />} />
-                        <Route exact path="/admin/contact" element={<Contact />} />
-                        <Route exact path="/admin/events" element={<Events />} /> */}
+
                     </Route>
 
 

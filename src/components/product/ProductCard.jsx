@@ -1,12 +1,19 @@
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const ProductCard = ({ product }) => {
     const navigate = useNavigate();
 
+    const [imageLoaded, setImageLoaded] = useState(false);
+
     const handleProductClick = () => {
         navigate(`/product/${product._id}`);
     };
+
+    const handleImageLoad = () => {
+        setImageLoaded(true);
+    }
 
     return (
         <div
@@ -17,12 +24,22 @@ const ProductCard = ({ product }) => {
         >
             {/* Product Image */}
             <div className="relative w-full h-5/6 overflow-hidden">
+
+                {/* Loading Spinner */}
+                {!imageLoaded && (
+                    <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-gray-200">
+                        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-rose-600"></div>
+                    </div>
+                )}
+
                 <img
                     src={product.image[0]}
                     alt={product.name}
-                    className="w-full h-full object-cover transition-all duration-300 group-hover:scale-110"
+                    loading="lazy"
+                    onLoad={handleImageLoad}
+                    className={`w-full h-full object-cover transition-all duration-300 group-hover:scale-110 
+                        ${imageLoaded ? "opacity-100" : "opacity-0"}`}
                 />
-
             </div>
 
             {/* Status Indicator */}

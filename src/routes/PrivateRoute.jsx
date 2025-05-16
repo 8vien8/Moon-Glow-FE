@@ -1,24 +1,20 @@
 import { Navigate, Outlet } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
-import PropTypes from "prop-types";
+import Loading from "../components/Loading";
 
-const PrivateRoute = ({ allowedRoles }) => {
-    const { user, loading } = useAuth();
+const PrivateRoute = () => {
+    const { isAuthenticated, loading } = useAuth();
 
     // Khi đang load user từ API
-    if (loading) {
-        return <div className="text-center mt-10">Loading...</div>;
+    if (loading && isAuthenticated) {
+        return <Loading />;
     }
 
-    if (!user || !allowedRoles.includes(user.role)) {
+    if (!isAuthenticated) {
         return <Navigate to="/login" />;
     }
     
     return <Outlet />;
-};
-
-PrivateRoute.propTypes = {
-    allowedRoles: PropTypes.array,
 };
 
 export default PrivateRoute;
